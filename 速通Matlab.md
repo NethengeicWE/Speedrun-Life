@@ -16,7 +16,15 @@ eval(f)         % 符号变量被赋值后对f进行计算
 expand(f)       % 展开f
 factor(f)       % 因式分解
 collect(f)      % 整理幂次
-solve(e,x)      % 求解e式中x的值
+solve(f,x)      % 求解f式中x的值
+
+rand(m,n)       % 生成m行n列个在0-1间的伪随机数
+                % (b-a)*r+a：   将rand的随机范围限制在[a,b]上
+randn(m,n)      % 正态分布  
+mean(x)         % 均值
+std(x)          % 标准差
+median(x)       % 中值
+cumsum(x)       % 逐个累加
 ```
 通用编程格式
 ```m
