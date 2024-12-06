@@ -52,3 +52,5 @@ $ I_{j} = \overline{X}_{j} + c\sqrt{ \frac{2\ln_{}{(n)}} {T_{j}(n)} } $
 * 下标：$ x_{i} $
 * 平均：$ \overline{x} $
 * 分数：$ \frac{1}{2}$
+
+## 表格
