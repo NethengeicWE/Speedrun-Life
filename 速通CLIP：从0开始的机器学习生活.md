@@ -114,3 +114,30 @@
         Vision Transfomer：尝鲜
         * 计算余弦相似度：即点乘
     * 表现：
+        * 测试集为imagenet-a，是imangenet的精选错题集，从天然图片中挑选ai最容易出错的部分
+        ```
+        ╰─ & C:/DevelopTool/Anacoda/envs/CLIP/python.exe c:/DevelopTool/Anacoda/envs/CLIP/WorkSpace/check-result-csv.py
+        WorkSpace/clip ViT-B/16 imagene-a results.csv: Accuracy = 47.89%
+        WorkSpace/clip ViT-B/32 imagene-a results.csv: Accuracy = 30.27%
+        WorkSpace/clip ViT-L/14 imagene-a results.csv: Accuracy = 67.47%
+        WorkSpace/clip ViT-L/14@336px imagene-a results.csv: Accuracy = 74.29%
+        WorkSpace/clip RN50x16 imagene-a results.csv: Accuracy = 52.05%
+        WorkSpace/clip RN50x64 imagene-a results.csv: Accuracy = 65.87%
+        WorkSpace/clip RN101 imagene-a results.csv: Accuracy = 27.83%
+        ```
+        * 表现完全取决于视觉编码器，这部分的改进已经做得很详细了，但接下来我要讲述一下zero-shot了
+    * Zero-shot 能力
+        * 定义：输入来自数据集以外，模型根据已有知识理解
+        * 一般的视觉识别“知其然但不知所以然”，但是clip引入的语言编码不一样
+        * 通过足够大的预训练，文本Transformer模型中**两个概念的组合等价于概念嵌入的向量相加**
+            > ![](./image/image-embedding.png)
+        * 同样的效果影响到了视觉编码，模型能将视觉和概念一一对应
+        * 我们能否找到一些嵌入，他能对应上视觉嵌入中一些**不被人注意到的东西**，比如ai生成，对抗攻击，图像修改痕迹
+
+    * **Zero-shot Capability**  
+        - **Definition**: The model can recognize and understand inputs that are not present in the training dataset by leveraging its prior knowledge.  
+        - Traditional vision models typically **"know what it is but not why it is"**, whereas CLIP introduces text encoding that enables a more flexible understanding of concepts.  
+        - With sufficiently large-scale pretraining, the text Transformer model can **represent a combination of two concepts as the sum of their embeddings**, improving generalization.   
+        - This effect also extends to visual encoding, allowing the model to associate visual features with concepts.  
+        - **Can we discover specific embeddings that correspond to subtle visual features that might not be easily noticeable to humans?**  
+            - For example, AI-generated content, adversarial attacks, or traces of image modifications.  
