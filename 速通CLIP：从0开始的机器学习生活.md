@@ -130,9 +130,10 @@
         * 定义：输入来自数据集以外，模型根据已有知识理解
         * 一般的视觉识别“知其然但不知所以然”，但是clip引入的语言编码不一样
         * 通过足够大的预训练，文本Transformer模型中**两个概念的组合等价于概念嵌入的向量相加**
-            > ![](./image/image-embedding.png)
+            > ![](../image/image-embedding.png)
         * 同样的效果影响到了视觉编码，模型能将视觉和概念一一对应
         * 我们能否找到一些嵌入，他能对应上视觉嵌入中一些**不被人注意到的东西**，比如ai生成，对抗攻击，图像修改痕迹
+        > 或许挖掘LLM就够了？我还没探索Glaze等反ai绘图的效果，这些东西仅限于实验室，即使声势浩大也没人动
 
     * **Zero-shot Capability**  
         - **Definition**: The model can recognize and understand inputs that are not present in the training dataset by leveraging its prior knowledge.  
@@ -141,3 +142,12 @@
         - This effect also extends to visual encoding, allowing the model to associate visual features with concepts.  
         - **Can we discover specific embeddings that correspond to subtle visual features that might not be easily noticeable to humans?**  
             - For example, AI-generated content, adversarial attacks, or traces of image modifications.  
+
+3. ClipCap: CLIP Prefix for Image Captioning
+    * 一个简单的映射网络就能把图片嵌入”翻译“到文本嵌入，使得LLM具有多模态能力
+    > 能不能将其他东西映射到文本嵌入？不行，预训练成本过高
+
+4. 《一系列视频-文本联合训练的仿CLIP模型》
+    * 训练成本过高，几乎从头训练
+    * 想在成熟模型中引入一个时间向量几乎不可能，必须重头构建
+    * 能不能小修小补？如果有为什么他们不早弄

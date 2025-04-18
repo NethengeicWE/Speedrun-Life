@@ -51,6 +51,7 @@ int main(){
 
 ## 数学公式
 $ I_{j} = \overline{X}_{j} + c\sqrt{ \frac{2\ln_{}{(n)}} {T_{j}(n)} } $   
+使用Latex格式  
 如何实现：https://www.latexlive.com/
 * 上标：$ x^{i} $
 * 下标：$ x_{i} $
